@@ -8,6 +8,7 @@ package-lock.json
 lab
 .env
 *.js
+*.css
 !.eslintrc.js
 *.js.map
 projects
