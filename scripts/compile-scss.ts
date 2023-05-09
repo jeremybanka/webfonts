@@ -3,14 +3,12 @@ import * as path from "path"
 import * as fs from "fs-extra"
 import sass from "sass"
 
-const ASSET_GROUPS = [
-  { packagePrefix: `fonts-`, sourceDirectory: `fonts`, sourceSuffix: `-font` },
-  { packagePrefix: `icons-`, sourceDirectory: `icons`, sourceSuffix: `-icon` },
-] as const
-
-const SOURCE_DIR = `./src`
-const TARGET_DIR = `./packages`
-const SCSS_EXTENSION = `.scss`
+import {
+  ASSET_GROUPS,
+  SCSS_EXTENSION,
+  SOURCE_DIR,
+  TARGET_DIR,
+} from "./constants"
 
 async function compileScssFiles(): Promise<void> {
   try {
