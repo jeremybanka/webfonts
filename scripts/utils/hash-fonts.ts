@@ -9,7 +9,7 @@ import {
   FONT_SOURCE_EXTENSION,
   FONT_TARGET_EXTENSIONS,
   SOURCE_DIR,
-} from "./constants"
+} from "./CONST"
 
 export async function generateFontFileHashes(): Promise<Record<string, string>> {
   try {

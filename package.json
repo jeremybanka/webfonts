@@ -2,7 +2,8 @@
   "name": "banka-webfonts-monorepo",
   "packageManager": "yarn@3.4.1",
   "scripts": {
-    "build": "tsx compile-scss"
+    "build": "tsx scripts/build",
+    "check": "tsx scripts/check"
   },
   "devDependencies": {
     "@banka/eslint-config": "1.4.0",

@@ -3,14 +3,9 @@ import * as path from "path"
 import * as fs from "fs-extra"
 import sass from "sass"
 
-import {
-  ASSET_GROUPS,
-  SCSS_EXTENSION,
-  SOURCE_DIR,
-  TARGET_DIR,
-} from "./constants"
+import { ASSET_GROUPS, SCSS_EXTENSION, SOURCE_DIR, TARGET_DIR } from "./CONST"
 
-async function compileScssFiles(): Promise<void> {
+export async function compileScssFiles(): Promise<void> {
   try {
     for (const {
       packagePrefix,
@@ -50,5 +45,3 @@ async function compileScssFiles(): Promise<void> {
     console.error(`Error while processing SCSS files:`, error)
   }
 }
-
-compileScssFiles()
