@@ -13,3 +13,8 @@ lab
 *.js.map
 projects
 .turbo
+
+export/**/*.otf
+export/**/*.ttf
+export/**/*.woff
+export/**/*.woff2
