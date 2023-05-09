@@ -1,5 +1,5 @@
 {
-.appVersion = "3133";
+.appVersion = "3151";
 DisplayStrings = (
 Handgloves,
 "L/Ldot ll..·/ldot/ldot/ldot/L.sc/Ldot.sc/Ldot.sc/Ldot.sc/Ldot.sc/hacek L/Lcaron/l.sc/quoteright/l.sc/lcaron.sc/lcaron.sc/lcaron.sc/lcaron.sc ·/l.sc/ldot.sc/ldot.sc/ldot.sc/ldot.sc \012Ll/Lcaron al/lcaron aH/L.sc/Lcaron AV",
@@ -14,7 +14,6 @@ Handgloves,
 "/Lcaron/lslash/tcommaaccent",
 "/fish",
 "3/space FI/space 3<_Fire\012_FI_\0122/space HT/space 2\012/fire.001 Fire\012_Heart\012_Bone\012/leaf Leaf\012_Wood\012_Slime\012_Ice\012_Water\012_Stone\012/food Food\012/life Life\012/death Death\012_Ether\012_Sand\012_Meat\012/glass Glass\012_Blade\012/weight Weight/speed \012_J\012_Speed\012/space/space E/space/steam Steam\012/space FI/space \012d\012t_Cold/space IC/space \012_Heat\012->/space VD/space \012/void _Ether_Meat\012<html>",
-"",
 "/heartBlackSuit/stamina",
 "/stamina"
 );
@@ -96376,7 +96375,7 @@ width = 1728;
 {
 associatedMasterId = "B520048A-B5B0-4F8C-90F0-FFAF6C62D524";
 backgroundImage = {
-imagePath = "/Users/jem/Documents/🎲 Delve/💎 Delve Assets/Icons/Images/damage.svg";
+imagePath = "../../../../Documents/🎲 Delve/💎 Delve Assets/Icons/Images/damage.svg";
 transform = "{1, 0, 0, 1, 0, -448}";
 };
 layerId = "05A16AAD-8665-46CD-B38D-378E4C2EE118";
