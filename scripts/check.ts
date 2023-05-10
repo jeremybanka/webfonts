@@ -1,4 +1,4 @@
 import { compileScssFiles } from "./utils/compile-scss-files"
-import { compareLockfile } from "./utils/hash-font-files"
+import * as lock from "./utils/lockfile-fns"
 
-compareLockfile().then(() => compileScssFiles())
+lock.diff().then((delta) => (delta === null ? compileScssFiles() : null))
