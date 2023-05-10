@@ -3,7 +3,9 @@
   "packageManager": "yarn@3.5.1",
   "scripts": {
     "build": "tsx scripts/build",
-    "check": "tsx scripts/check"
+    "check": "tsx scripts/check",
+    "test": "vitest",
+    "test:once": "vitest run"
   },
   "devDependencies": {
     "@banka/eslint-config": "1.4.0",
