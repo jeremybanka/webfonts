@@ -9,12 +9,13 @@ import {
   FONT_SOURCE_EXTENSION,
   FONT_TARGET_EXTENSIONS,
   SOURCE_DIR,
+  TARGET_DIR,
 } from "./CONST"
 
 export async function generateFontFileHashes(): Promise<Record<string, string>> {
   try {
     const assetGroupHashRecords = await Promise.all(
-      ASSET_GROUPS.map(async ({ sourceDirectory }) => {
+      ASSET_GROUPS.map(async ({ sourceDirectory, packagePrefix }) => {
         const assetGroupSourceDir = path.join(SOURCE_DIR, sourceDirectory)
         const sourceFilepaths = (await fs.readdir(assetGroupSourceDir)).map(
           (file) => path.join(assetGroupSourceDir, file)
@@ -37,15 +38,19 @@ export async function generateFontFileHashes(): Promise<Record<string, string>> 
           )
         const targetFilepaths = (
           await Promise.all(
-            packageDirectories.map((packageDirectory) =>
-              fs
-                .readdir(packageDirectory)
-                .then((contents) =>
-                  contents.filter((maybeFile) =>
-                    path.join(packageDirectory, maybeFile)
+            packageDirectories
+              .filter((packageDirectory) =>
+                packageDirectory.startsWith(path.join(TARGET_DIR, packagePrefix))
+              )
+              .map((packageDirectory) =>
+                fs
+                  .readdir(packageDirectory)
+                  .then((contents) =>
+                    contents.map((maybeFile) =>
+                      path.join(packageDirectory, maybeFile)
+                    )
                   )
-                )
-            )
+              )
           )
         ).flat()
         const targetFontFilepaths = targetFilepaths.filter((file) =>
@@ -110,20 +115,16 @@ export async function compareLockfile(): Promise<void> {
     const newLockfileEntriesWithChanges = newLockfileEntries.filter(
       ([filepath, hash]) => lockfile[filepath] !== hash
     )
+    console.log({
+      lockfileEntries,
+      newLockfileEntries,
+    })
     console.log(
       `Lockfile entries with changes:`,
       lockfileEntriesWithChanges.map(([filepath, hash]) => ({
         filepath,
         oldHash: hash,
         newHash: newLockfile[filepath],
-      }))
-    )
-    console.log(
-      `New lockfile entries with changes:`,
-      newLockfileEntriesWithChanges.map(([filepath, hash]) => ({
-        filepath,
-        oldHash: lockfile[filepath],
-        newHash: hash,
       }))
     )
   } catch (error) {
