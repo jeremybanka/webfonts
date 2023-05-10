@@ -1,7 +1,7 @@
 import { compileScssFiles } from "./utils/compile-scss-files"
-import { writeLockfile } from "./utils/hash-fonts"
-import { packFonts } from "./utils/pack-fonts"
+import * as lock from "./utils/lockfile-fns"
+import { packFonts } from "./utils/pack-font-files"
 
 packFonts()
-writeLockfile()
+lock.write()
 compileScssFiles()

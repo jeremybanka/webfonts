@@ -12,7 +12,7 @@ import {
   TARGET_DIR,
 } from "./CONST"
 
-export async function generateFontFileHashes(): Promise<Record<string, string>> {
+export async function hashFontFiles(): Promise<Record<string, string>> {
   try {
     const assetGroupHashRecords = await Promise.all(
       ASSET_GROUPS.map(async ({ sourceDirectory, packagePrefix }) => {
@@ -89,54 +89,5 @@ export async function generateFontFileHashes(): Promise<Record<string, string>> 
   } catch (error) {
     console.error(`Error while generating font file hashes:`, error)
     return {}
-  }
-}
-
-export async function readLockfile(): Promise<Record<string, string>> {
-  try {
-    const lockFile = await fs.readFile(FONT_LOCKFILE, `utf8`)
-    const lockFileJson = JSON.parse(lockFile)
-    return lockFileJson
-  } catch (error) {
-    console.error(`Error while reading lock file:`, error)
-    return {}
-  }
-}
-
-export async function compareLockfile(): Promise<void> {
-  try {
-    const lockfile = await readLockfile()
-    const newLockfile = await generateFontFileHashes()
-    const lockfileEntries = Object.entries(lockfile)
-    const newLockfileEntries = Object.entries(newLockfile)
-    const lockfileEntriesWithChanges = lockfileEntries.filter(
-      ([filepath, hash]) => newLockfile[filepath] !== hash
-    )
-    const newLockfileEntriesWithChanges = newLockfileEntries.filter(
-      ([filepath, hash]) => lockfile[filepath] !== hash
-    )
-    console.log({
-      lockfileEntries,
-      newLockfileEntries,
-    })
-    console.log(
-      `Lockfile entries with changes:`,
-      lockfileEntriesWithChanges.map(([filepath, hash]) => ({
-        filepath,
-        oldHash: hash,
-        newHash: newLockfile[filepath],
-      }))
-    )
-  } catch (error) {
-    console.error(`Error while comparing lock files:`, error)
-  }
-}
-
-export async function writeLockfile(): Promise<void> {
-  try {
-    const lockfile = await generateFontFileHashes()
-    await fs.writeFile(FONT_LOCKFILE, JSON.stringify(lockfile, null, 2))
-  } catch (error) {
-    console.error(`Error while writing lock file:`, error)
   }
 }

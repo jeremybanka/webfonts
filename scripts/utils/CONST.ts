@@ -11,4 +11,4 @@ export const SCSS_EXTENSION = `.scss`
 export const FONT_SOURCE_EXTENSION = `.glyphs`
 export const FONT_TARGET_EXTENSIONS = [`.ttf`, `.otf`, `.woff`, `.woff2`]
 
-export const FONT_LOCKFILE = `export/fonts.lock.json`
+export const FONT_LOCKFILE = `export/font.lock.json`
