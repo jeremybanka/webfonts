@@ -8,12 +8,15 @@
   "devDependencies": {
     "@banka/eslint-config": "1.4.0",
     "@types/fs-extra": "11.0.1",
+    "@types/mock-fs": "4.13.1",
     "eslint": "8.40.0",
     "fs-extra": "11.1.1",
+    "mock-fs": "5.2.0",
     "prettier": "2.8.8",
     "sass": "1.62.1",
     "tsx": "3.12.7",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "vitest": "0.31.0"
   },
   "packages": [
     "packages/*"
