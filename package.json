@@ -4,6 +4,7 @@
   "scripts": {
     "build": "tsx scripts/build",
     "check": "tsx scripts/check",
+    "lint": "eslint",
     "test": "vitest",
     "test:once": "vitest run"
   },
