@@ -20,7 +20,7 @@
     "sass": "1.62.1",
     "tsx": "3.12.7",
     "typescript": "5.0.4",
-    "vitest": "0.31.0"
+    "vitest": "0.31.1"
   },
   "packages": [
     "packages/*"
