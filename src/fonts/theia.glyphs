@@ -1,5 +1,5 @@
 {
-.appVersion = "3058";
+.appVersion = "3151";
 .formatVersion = 3;
 DisplayStrings = (
 "░▒▓ a```a/quotedbl.inqu \"/quotedbl.utqu \"\"\"a
@@ -157,7 +157,9 @@ urbit",
 "{}",
 "{}(){a}[e]/bracketleft.blbr/bracketright.blbr/braceleft.inhy/braceright.uthy 
 ",
-""
+"/backslash.inma/backslash.inma/backslash.inma/backslash.inma/bar.inma/bar.inma/bar.inma/bar.inma/macron.half/macron.half/macron.half/macron.half 
+
+Geang_"
 );
 axes = (
 {
@@ -9428,7 +9430,7 @@ width = 1000;
 },
 {
 glyphname = a;
-lastChange = "2020-04-20 15:22:42 +0000";
+lastChange = "2023-05-21 00:07:55 +0000";
 layers = (
 {
 anchors = (
@@ -26622,17 +26624,19 @@ width = 1000;
 },
 {
 glyphname = backslash.inma;
-lastChange = "2020-04-27 03:49:24 +0000";
+lastChange = "2023-05-21 00:04:42 +0000";
 layers = (
 {
 layerId = "7B6A6B4E-EFCA-423F-B1F3-F70C1AFA501E";
 shapes = (
 {
+alignment = -1;
 pos = (505,0);
 ref = macron;
 scale = (0.5,1);
 },
 {
+alignment = -1;
 pos = (1000,0);
 ref = slash;
 scale = (-1,1);
@@ -26644,11 +26648,13 @@ width = 1000;
 layerId = "75A0A031-BEAD-45F4-8089-5B3FA8FFE7DC";
 shapes = (
 {
+alignment = -1;
 pos = (505,0);
 ref = macron;
 scale = (0.5,1);
 },
 {
+alignment = -1;
 pos = (1000,0);
 ref = slash;
 scale = (-1,1);
@@ -33932,17 +33938,19 @@ width = 1000;
 },
 {
 glyphname = bar.inma;
-lastChange = "2020-04-27 03:54:07 +0000";
+lastChange = "2023-05-21 00:04:42 +0000";
 layers = (
 {
 layerId = "7B6A6B4E-EFCA-423F-B1F3-F70C1AFA501E";
 shapes = (
 {
+alignment = -1;
 pos = (505,0);
 ref = macron;
 scale = (0.5,1);
 },
 {
+alignment = -1;
 ref = bar;
 }
 );
@@ -33952,11 +33960,13 @@ width = 1000;
 layerId = "75A0A031-BEAD-45F4-8089-5B3FA8FFE7DC";
 shapes = (
 {
+alignment = -1;
 pos = (505,0);
 ref = macron;
 scale = (0.5,1);
 },
 {
+alignment = -1;
 ref = bar;
 }
 );
@@ -44880,12 +44890,13 @@ unicode = 731;
 },
 {
 glyphname = macron.half;
-lastChange = "2020-04-27 03:37:47 +0000";
+lastChange = "2023-05-21 00:04:42 +0000";
 layers = (
 {
 layerId = "7B6A6B4E-EFCA-423F-B1F3-F70C1AFA501E";
 shapes = (
 {
+alignment = -1;
 pos = (505,0);
 ref = macron;
 scale = (0.5,1);
@@ -44897,6 +44908,7 @@ width = 1000;
 layerId = "75A0A031-BEAD-45F4-8089-5B3FA8FFE7DC";
 shapes = (
 {
+alignment = -1;
 pos = (505,0);
 ref = macron;
 scale = (0.5,1);
