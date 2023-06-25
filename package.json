@@ -12,7 +12,7 @@
     "@banka/eslint-config": "1.4.0",
     "@types/fs-extra": "11.0.1",
     "@types/mock-fs": "4.13.1",
-    "@types/node": "20.1.1",
+    "@types/node": "20.3.1",
     "eslint": "8.43.0",
     "fs-extra": "11.1.1",
     "mock-fs": "5.2.0",
