@@ -9,7 +9,7 @@
     "test:once": "vitest run"
   },
   "devDependencies": {
-    "@banka/eslint-config": "1.4.0",
+    "@banka/eslint-config": "2.0.0",
     "@types/fs-extra": "11.0.1",
     "@types/mock-fs": "4.13.1",
     "@types/node": "20.4.2",
