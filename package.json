@@ -1,6 +1,6 @@
 {
   "name": "banka-webfonts-monorepo",
-  "packageManager": "yarn@3.6.2",
+  "packageManager": "yarn@3.6.3",
   "scripts": {
     "build": "tsx scripts/build",
     "check": "tsx scripts/check",
