@@ -443,12 +443,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mock-fs@npm:4.13.1":
-  version: 4.13.1
-  resolution: "@types/mock-fs@npm:4.13.1"
+"@types/mock-fs@npm:4.13.3":
+  version: 4.13.3
+  resolution: "@types/mock-fs@npm:4.13.3"
   dependencies:
     "@types/node": "*"
-  checksum: a5fcf8212daa270e6aa560019a4bd28a66e6fa49c55c1373746d5894f4aa1aafa5588335194953cf014de3c77df6be67a041fb6638ead7124307370985880b6c
+  checksum: 17b34bcec0348d2643b1945871d539f4bf42278a835baf46afbf9e19bcf40a91fec89047c1038b61bec952cb8e614406e79ea3ed22d943caf538a088a8b1b16c
   languageName: node
   linkType: hard
 
@@ -879,7 +879,7 @@ __metadata:
   dependencies:
     "@banka/eslint-config": 2.0.0
     "@types/fs-extra": 11.0.1
-    "@types/mock-fs": 4.13.1
+    "@types/mock-fs": 4.13.3
     "@types/node": 20.5.7
     eslint: 8.48.0
     fs-extra: 11.1.1
