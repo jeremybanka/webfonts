@@ -19,7 +19,7 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     container:
-      image: node:20
+      image: node:21
     timeout-minutes: 15
     steps:
       - name: Checkout
