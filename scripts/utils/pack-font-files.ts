@@ -9,7 +9,7 @@ import {
   TARGET_DIR,
 } from "./CONST"
 
-export async function packFonts(): Promise<void> {
+export async function packFonts(baseDir = `.`): Promise<void> {
   const successfulFamilies: Set<string> = new Set()
   try {
     for (const {
@@ -17,7 +17,7 @@ export async function packFonts(): Promise<void> {
       sourceDirectory,
       sourceSuffix,
     } of ASSET_GROUPS) {
-      const files = await fs.readdir(EXPORT_DIR)
+      const files = await fs.readdir(path.join(baseDir, EXPORT_DIR))
       const fontFiles = files.filter((file) =>
         FONT_TARGET_EXTENSIONS.includes(path.extname(file).toLowerCase())
       )
@@ -37,6 +37,7 @@ export async function packFonts(): Promise<void> {
       for (const familyName in fontFamilies) {
         const sourceFiles = fontFamilies[familyName]
         const targetFamilyDirectory = path.join(
+          baseDir,
           TARGET_DIR,
           packagePrefix + familyName
         )
@@ -60,7 +61,7 @@ export async function packFonts(): Promise<void> {
 
         // Move font files to target directory
         for (const file of sourceFiles) {
-          const sourcePath = path.join(EXPORT_DIR, file)
+          const sourcePath = path.join(baseDir, EXPORT_DIR, file)
           const targetPath = path.join(targetFamilyDirectory, file)
           successfulFamilies.add(familyName)
           await fs.move(sourcePath, targetPath)
