@@ -690,6 +690,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/tmp@npm:0.2.5":
+  version: 0.2.5
+  resolution: "@types/tmp@npm:0.2.5"
+  checksum: eb6a45814ebe039d47448c1e6adf24ba738ce771d14e39a2d2aa4c4d54a3744b184c9f04d65bdf9c5221a2d7d6fcb27ee5414299f85f737285f07402b58b6803
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/eslint-plugin@npm:6.0.0":
   version: 6.0.0
   resolution: "@typescript-eslint/eslint-plugin@npm:6.0.0"
@@ -1098,11 +1105,13 @@ __metadata:
     "@types/fs-extra": 11.0.3
     "@types/mock-fs": 4.13.3
     "@types/node": 20.8.7
+    "@types/tmp": 0.2.5
     eslint: 8.52.0
     fs-extra: 11.1.1
     mock-fs: 5.2.0
     prettier: 3.0.3
     sass: 1.69.4
+    tmp: 0.2.1
     tsx: 3.14.0
     typescript: 5.2.2
     vitest: 0.34.6
@@ -3637,7 +3646,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^3.0.2":
+"rimraf@npm:^3.0.0, rimraf@npm:^3.0.2":
   version: 3.0.2
   resolution: "rimraf@npm:3.0.2"
   dependencies:
@@ -4086,6 +4095,15 @@ __metadata:
   version: 3.0.0
   resolution: "titleize@npm:3.0.0"
   checksum: 71fbbeabbfb36ccd840559f67f21e356e1d03da2915b32d2ae1a60ddcc13a124be2739f696d2feb884983441d159a18649e8d956648d591bdad35c430a6b6d28
+  languageName: node
+  linkType: hard
+
+"tmp@npm:0.2.1":
+  version: 0.2.1
+  resolution: "tmp@npm:0.2.1"
+  dependencies:
+    rimraf: ^3.0.0
+  checksum: 8b1214654182575124498c87ca986ac53dc76ff36e8f0e0b67139a8d221eaecfdec108c0e6ec54d76f49f1f72ab9325500b246f562b926f85bcdfca8bf35df9e
   languageName: node
   linkType: hard
 
