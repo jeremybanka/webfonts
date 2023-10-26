@@ -1,7 +1,7 @@
 import * as path from "path"
 
 import * as fs from "fs-extra"
-import sass from "sass"
+import * as sass from "sass"
 
 import { ASSET_GROUPS, SCSS_EXTENSION, SOURCE_DIR, TARGET_DIR } from "./CONST"
 
