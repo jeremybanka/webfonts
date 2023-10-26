@@ -28,6 +28,9 @@
     "packages/*"
   ],
   "eslintConfig": {
-    "extends": "@banka/eslint-config"
+    "extends": "@banka/eslint-config",
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    }
   }
 }
