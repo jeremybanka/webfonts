@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, writeFileSync } from "fs"
+import { existsSync } from "fs"
 
 import tmp from "tmp"
 
@@ -22,7 +22,9 @@ beforeEach(() => {
     },
     tmpDir.name
   )
-  tmp.setGracefulCleanup()
+  return () => {
+    tmpDir.removeCallback()
+  }
 })
 
 describe(`pack font files`, () => {

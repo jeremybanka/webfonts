@@ -10,7 +10,6 @@ let tmpDir: tmp.DirResult
 
 beforeEach(() => {
   tmpDir = tmp.dirSync({ unsafeCleanup: true })
-  tmp.setGracefulCleanup()
   quickFileTree(
     {
       src: {
@@ -25,6 +24,9 @@ beforeEach(() => {
     },
     tmpDir.name
   )
+  return () => {
+    tmpDir.removeCallback()
+  }
 })
 
 describe(`compileScssFiles`, () => {

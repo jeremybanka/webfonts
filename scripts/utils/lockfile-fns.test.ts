@@ -30,7 +30,9 @@ beforeEach(() => {
     },
     tmpDir.name
   )
-  tmp.setGracefulCleanup()
+  return () => {
+    tmpDir.removeCallback()
+  }
 })
 
 describe(`lockfile functions`, () => {

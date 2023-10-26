@@ -1108,7 +1108,6 @@ __metadata:
     "@types/tmp": 0.2.5
     eslint: 8.52.0
     fs-extra: 11.1.1
-    mock-fs: 5.2.0
     prettier: 3.0.3
     sass: 1.69.4
     tmp: 0.2.1
@@ -3137,13 +3136,6 @@ __metadata:
     pkg-types: ^1.0.3
     ufo: ^1.1.2
   checksum: ebf2e2b5cfb4c6e45e8d0bbe82710952247023f12626cb0997c41b1bb6e57c8b6fc113aa709228ad511382ab0b4eebaab759806be0578093b3635d3e940bd63b
-  languageName: node
-  linkType: hard
-
-"mock-fs@npm:5.2.0":
-  version: 5.2.0
-  resolution: "mock-fs@npm:5.2.0"
-  checksum: c25835247bd26fa4e0189addd61f98973f61a72741e4d2a5694b143a2069b84978443a7ac0fdb1a71aead99273ec22ff4e9c968de11bbd076db020264c5b8312
   languageName: node
   linkType: hard
 
