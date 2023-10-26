@@ -1,4 +1,4 @@
-name: Build, Lint, Test
+name: Integration
 
 on:
   push:
@@ -16,9 +16,10 @@ defaults:
 
 jobs:
   Lint:
+    name: Lint
     runs-on: ubuntu-latest
     container:
-      image: node:lts
+      image: node:20
     timeout-minutes: 15
     steps:
       - name: Checkout
@@ -36,7 +37,7 @@ jobs:
         run: yarn tsc
 
   Test:
-    name: Build, Then Test
+    name: Build & Test
     runs-on: ubuntu-latest
     container:
       image: node:lts
