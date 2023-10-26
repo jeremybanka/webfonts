@@ -1,20 +1,25 @@
+import * as path from "path"
+
 import * as fs from "fs-extra"
 
 import { FONT_LOCKFILE } from "./CONST"
 import { hashFontFiles } from "./hash-font-files"
 
-export async function write(): Promise<void> {
+export async function write(baseDir = `.`): Promise<void> {
   try {
-    const lockfile = await hashFontFiles()
-    await fs.writeFile(FONT_LOCKFILE, JSON.stringify(lockfile, null, 2))
+    const lockfile = await hashFontFiles(baseDir)
+    await fs.writeFile(
+      path.join(baseDir, FONT_LOCKFILE),
+      JSON.stringify(lockfile, null, 2)
+    )
   } catch (error) {
     console.error(`Error while writing lock file:`, error)
   }
 }
 
-export async function read(): Promise<Record<string, string>> {
+export async function read(baseDir = `.`): Promise<Record<string, string>> {
   try {
-    const lockFile = await fs.readFile(FONT_LOCKFILE, `utf8`)
+    const lockFile = await fs.readFile(path.join(baseDir, FONT_LOCKFILE), `utf8`)
     const lockFileJson = JSON.parse(lockFile)
     return lockFileJson
   } catch (error) {
@@ -23,10 +28,12 @@ export async function read(): Promise<Record<string, string>> {
   }
 }
 
-export async function diff(): Promise<Record<string, string> | null> {
+export async function diff(
+  baseDir = `.`
+): Promise<Record<string, string> | null> {
   try {
-    const lockfile = await read()
-    const newLockfile = await hashFontFiles()
+    const lockfile = await read(baseDir)
+    const newLockfile = await hashFontFiles(baseDir)
     const lockfileEntries = Object.entries(lockfile)
     const newLockfileEntries = Object.entries(newLockfile)
     const lockfileEntriesWithChanges = lockfileEntries.filter(

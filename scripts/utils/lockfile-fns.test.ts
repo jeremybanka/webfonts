@@ -1,52 +1,62 @@
 import * as fs from "fs-extra"
-import mock from "mock-fs"
+import tmp from "tmp"
 
 import * as lock from "./lockfile-fns"
+import { quickFileTree } from "./quick-file-tree"
+
+let tmpDir: tmp.DirResult
 
 beforeEach(() => {
-  mock({
-    src: {
-      fonts: {
-        "ergata.glyphs": `1234567890`,
-        "ergata.scss": ``,
+  tmpDir = tmp.dirSync({ unsafeCleanup: true })
+  quickFileTree(
+    {
+      src: {
+        fonts: {
+          "ergata.glyphs": `1234567890`,
+          "ergata.scss": ``,
+        },
+        icons: {},
       },
-      icons: {},
-    },
-    packages: {
-      "fonts-ergata": {
-        "ergata-4.otf": `1234567890`,
+      packages: {
+        "fonts-ergata": {
+          "ergata-4.otf": `1234567890`,
+        },
+      },
+      export: {
+        "font.lock.json": JSON.stringify({
+          [`${tmpDir.name}/src/fonts/ergata.glyphs`]: `01b307acba4f54f55aafc33bb06bbbf6ca803e9a`,
+        }),
       },
     },
-    export: {
-      "font.lock.json": JSON.stringify({
-        "src/fonts/ergata.glyphs": `01b307acba4f54f55aafc33bb06bbbf6ca803e9a`,
-      }),
-    },
-  })
+    tmpDir.name
+  )
+  return () => {
+    tmpDir.removeCallback()
+  }
 })
 
 describe(`lockfile functions`, () => {
   test(`read`, async () => {
-    const lockfile = await lock.read()
+    const lockfile = await lock.read(tmpDir.name)
     expect(lockfile).toStrictEqual({
-      "src/fonts/ergata.glyphs": `01b307acba4f54f55aafc33bb06bbbf6ca803e9a`,
+      [`${tmpDir.name}/src/fonts/ergata.glyphs`]: `01b307acba4f54f55aafc33bb06bbbf6ca803e9a`,
     })
   })
   test(`diff`, async () => {
-    const diff = await lock.diff()
+    const diff = await lock.diff(tmpDir.name)
     console.log({ diff })
     expect(diff).toStrictEqual({
-      "packages/fonts-ergata/ergata-4.otf": `01b307acba4f54f55aafc33bb06bbbf6ca803e9a`,
+      [`${tmpDir.name}/packages/fonts-ergata/ergata-4.otf`]: `01b307acba4f54f55aafc33bb06bbbf6ca803e9a`,
     })
   })
   test(`write`, async () => {
-    await lock.write()
-    expect(fs.existsSync(`export/font.lock.json`)).toBe(true)
+    await lock.write(tmpDir.name)
+    expect(fs.existsSync(`${tmpDir.name}/export/font.lock.json`)).toBe(true)
     expect(
-      JSON.parse(fs.readFileSync(`export/font.lock.json`, `utf8`))
+      JSON.parse(fs.readFileSync(`${tmpDir.name}/export/font.lock.json`, `utf8`))
     ).toStrictEqual({
-      "src/fonts/ergata.glyphs": `01b307acba4f54f55aafc33bb06bbbf6ca803e9a`,
-      "packages/fonts-ergata/ergata-4.otf": `01b307acba4f54f55aafc33bb06bbbf6ca803e9a`,
+      [`${tmpDir.name}/src/fonts/ergata.glyphs`]: `01b307acba4f54f55aafc33bb06bbbf6ca803e9a`,
+      [`${tmpDir.name}/packages/fonts-ergata/ergata-4.otf`]: `01b307acba4f54f55aafc33bb06bbbf6ca803e9a`,
     })
   })
 })

@@ -5,42 +5,51 @@ import * as fs from "fs-extra"
 
 import {
   ASSET_GROUPS,
-  FONT_LOCKFILE,
   FONT_SOURCE_EXTENSION,
   FONT_TARGET_EXTENSIONS,
   SOURCE_DIR,
   TARGET_DIR,
 } from "./CONST"
 
-export async function hashFontFiles(): Promise<Record<string, string>> {
+export async function hashFontFiles(
+  baseDir = `.`
+): Promise<Record<string, string>> {
   try {
     const assetGroupHashRecords = await Promise.all(
       ASSET_GROUPS.map(async ({ sourceDirectory, packagePrefix }) => {
-        const assetGroupSourceDir = path.join(SOURCE_DIR, sourceDirectory)
+        const assetGroupSourceDir = path.join(
+          baseDir,
+          SOURCE_DIR,
+          sourceDirectory
+        )
         const sourceFilepaths = (await fs.readdir(assetGroupSourceDir)).map(
           (file) => path.join(assetGroupSourceDir, file)
         )
         const sourceFontFilepaths = sourceFilepaths.filter((file) =>
           file.endsWith(FONT_SOURCE_EXTENSION)
         )
+
         const packageDirectories = await fs
-          .readdir(`./packages`)
+          .readdir(path.join(baseDir, `packages`))
           .then((contents) =>
             contents
               .filter((maybeDirectory) => {
                 const maybeDirectoryPath = path.join(
-                  `./packages`,
+                  baseDir,
+                  `packages`,
                   maybeDirectory
                 )
                 return fs.lstatSync(maybeDirectoryPath).isDirectory()
               })
-              .map((directory) => path.join(`./packages`, directory))
+              .map((directory) => path.join(baseDir, `packages`, directory))
           )
         const targetFilepaths = (
           await Promise.all(
             packageDirectories
               .filter((packageDirectory) =>
-                packageDirectory.startsWith(path.join(TARGET_DIR, packagePrefix))
+                packageDirectory.startsWith(
+                  path.join(baseDir, TARGET_DIR, packagePrefix)
+                )
               )
               .map((packageDirectory) =>
                 fs

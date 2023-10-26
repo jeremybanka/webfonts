@@ -1,18 +1,18 @@
 import * as path from "path"
 
 import * as fs from "fs-extra"
-import sass from "sass"
+import * as sass from "sass"
 
 import { ASSET_GROUPS, SCSS_EXTENSION, SOURCE_DIR, TARGET_DIR } from "./CONST"
 
-export async function compileScssFiles(): Promise<void> {
+export async function compileScssFiles(baseDir = `.`): Promise<void> {
   try {
     for (const {
       packagePrefix,
       sourceDirectory,
       sourceSuffix,
     } of ASSET_GROUPS) {
-      const assetGroupSourceDir = path.join(SOURCE_DIR, sourceDirectory)
+      const assetGroupSourceDir = path.join(baseDir, SOURCE_DIR, sourceDirectory)
       const files = await fs.readdir(assetGroupSourceDir)
       const scssFiles = files.filter(
         (file) => path.extname(file) === SCSS_EXTENSION
@@ -29,6 +29,7 @@ export async function compileScssFiles(): Promise<void> {
           ``
         )
         const cssTargetDirectory = path.join(
+          baseDir,
           TARGET_DIR,
           packagePrefix + fileNameWithoutSuffix
         )
