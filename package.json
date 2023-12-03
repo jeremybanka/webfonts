@@ -11,7 +11,7 @@
   "devDependencies": {
     "@banka/eslint-config": "2.0.0",
     "@types/fs-extra": "11.0.4",
-    "@types/node": "20.10.2",
+    "@types/node": "20.10.3",
     "@types/tmp": "0.2.6",
     "eslint": "8.55.0",
     "fs-extra": "11.2.0",
