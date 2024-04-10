@@ -9,11 +9,13 @@
     "test:once": "vitest run"
   },
   "devDependencies": {
-    "@banka/eslint-config": "2.0.0",
+    "@biomejs/biome": "1.6.4",
+    "@eslint/eslintrc": "3.0.2",
     "@types/fs-extra": "11.0.4",
     "@types/node": "20.14.1",
     "@types/tmp": "0.2.6",
-    "eslint": "9.0.0",
+    "@typescript-eslint/eslint-plugin": "7.6.0",
+    "@typescript-eslint/parser": "7.6.0",
     "fs-extra": "11.2.0",
     "prettier": "3.3.0",
     "sass": "1.77.4",
@@ -24,11 +26,5 @@
   },
   "packages": [
     "packages/*"
-  ],
-  "eslintConfig": {
-    "extends": "@banka/eslint-config",
-    "parserOptions": {
-      "project": "./tsconfig.json"
-    }
-  }
+  ]
 }
