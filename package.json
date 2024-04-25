@@ -20,7 +20,7 @@
     "tmp": "0.2.3",
     "tsx": "4.7.3",
     "typescript": "5.4.5",
-    "vitest": "1.5.1"
+    "vitest": "1.5.2"
   },
   "packages": [
     "packages/*"
