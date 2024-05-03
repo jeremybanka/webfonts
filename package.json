@@ -13,7 +13,7 @@
     "@types/fs-extra": "11.0.4",
     "@types/node": "20.12.8",
     "@types/tmp": "0.2.6",
-    "eslint": "8.57.0",
+    "eslint": "9.2.0",
     "fs-extra": "11.2.0",
     "prettier": "3.2.5",
     "sass": "1.76.0",
