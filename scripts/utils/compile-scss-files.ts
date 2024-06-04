@@ -38,7 +38,7 @@ export async function compileScssFiles(baseDir = `.`): Promise<void> {
 
 				const result = sass.compile(scssFilePath)
 				const cssOutputPath = path.join(cssTargetDirectory, `font-face.css`)
-				fs.writeFile(cssOutputPath, result.css)
+				await fs.writeFile(cssOutputPath, result.css)
 				console.log(`Compiled ${file} to ${cssOutputPath}`)
 			}
 		}

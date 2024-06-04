@@ -33,7 +33,7 @@ export async function packFonts(baseDir = `.`): Promise<void> {
 			}
 
 			// Process each font family
-			// eslint-disable-next-line no-restricted-syntax
+
 			for (const familyName in fontFamilies) {
 				const sourceFiles = fontFamilies[familyName]
 				const targetFamilyDirectory = path.join(
