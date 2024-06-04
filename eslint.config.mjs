@@ -1,10 +1,14 @@
+import path from "node:path"
+import { fileURLToPath } from "node:url"
 import parser from "@typescript-eslint/parser"
 import plugin from "@typescript-eslint/eslint-plugin"
 import { FlatCompat } from "@eslint/eslintrc"
 
+const DIRNAME = path.dirname(fileURLToPath(import.meta.url))
+
 /** @type {import("@eslint/eslintrc").FlatCompat} */
 const compat = new FlatCompat({
-	baseDirectory: __dirname,
+	baseDirectory: DIRNAME,
 })
 
 const ERROR = 2
