@@ -1,30 +1,35 @@
 {
-  "name": "banka-webfonts-monorepo",
-  "packageManager": "yarn@4.2.2",
-  "scripts": {
-    "build": "tsx scripts/build",
-    "check": "tsx scripts/check",
-    "lint": "eslint",
-    "test": "vitest",
-    "test:once": "vitest run"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.6.4",
-    "@eslint/eslintrc": "3.0.2",
-    "@types/fs-extra": "11.0.4",
-    "@types/node": "20.14.1",
-    "@types/tmp": "0.2.6",
-    "@typescript-eslint/eslint-plugin": "7.6.0",
-    "@typescript-eslint/parser": "7.6.0",
-    "fs-extra": "11.2.0",
-    "prettier": "3.3.0",
-    "sass": "1.77.4",
-    "tmp": "0.2.3",
-    "tsx": "4.11.2",
-    "typescript": "5.4.5",
-    "vitest": "1.6.0"
-  },
-  "packages": [
-    "packages/*"
-  ]
+	"name": "banka-webfonts-monorepo",
+	"packageManager": "yarn@4.2.2",
+	"scripts": {
+		"build": "tsx scripts/build",
+		"check": "tsx scripts/check",
+		"lint:biome": "biome check -- .",
+		"lint:eslint": "eslint .",
+		"lint:types": "tsc --noEmit",
+		"lint": "bun run lint:biome && bun run lint:eslint && bun run lint:types",
+		"lint:fix:biome": "biome check --apply *",
+		"lint:fix:eslint": "eslint --fix .",
+		"test": "vitest",
+		"test:once": "vitest run"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.0",
+		"@eslint/eslintrc": "3.1.0",
+		"@eslint/js": "9.4.0",
+		"@types/fs-extra": "11.0.4",
+		"@types/node": "20.14.1",
+		"@types/tmp": "0.2.6",
+		"@typescript-eslint/eslint-plugin": "7.6.0",
+		"@typescript-eslint/parser": "7.6.0",
+		"fs-extra": "11.2.0",
+		"sass": "1.77.4",
+		"tmp": "0.2.3",
+		"tsx": "4.11.2",
+		"typescript": "5.4.5",
+		"vitest": "1.6.0"
+	},
+	"packages": [
+		"packages/*"
+	]
 }
