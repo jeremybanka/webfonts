@@ -1102,7 +1102,7 @@ __metadata:
     prettier: "npm:3.3.1"
     sass: "npm:1.77.4"
     tmp: "npm:0.2.3"
-    tsx: "npm:4.12.0"
+    tsx: "npm:4.12.1"
     typescript: "npm:5.4.5"
     vitest: "npm:1.6.0"
   languageName: unknown
@@ -4172,9 +4172,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:4.12.0":
-  version: 4.12.0
-  resolution: "tsx@npm:4.12.0"
+"tsx@npm:4.12.1":
+  version: 4.12.1
+  resolution: "tsx@npm:4.12.1"
   dependencies:
     esbuild: "npm:~0.20.2"
     fsevents: "npm:~2.3.3"
@@ -4184,7 +4184,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10c0/3ffe41869512685041ee4fffad63ebbabcac9f76b2349c7ca354cf27284c696e45beb7e8a2f39eb44e01e13d54ea97b37e5882e1aa3ddf67aff96a9ffc58a1c0
+  checksum: 10c0/da3a1f4f1d58bfd3ba022c26757ebb907d6cff47abb38fdb2a57fcfb17a82ac8fe0a8359d8f1b500c893731468b8d8e7fea104d869f4b0ffd747e188e035fb07
   languageName: node
   linkType: hard
 
