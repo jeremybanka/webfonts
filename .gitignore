@@ -9,7 +9,7 @@ lab
 .env
 *.js
 *.css
-!.eslintrc.js
+!eslint.config.js
 *.js.map
 projects
 .turbo
