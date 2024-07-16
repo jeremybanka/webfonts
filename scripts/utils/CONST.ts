@@ -1,6 +1,6 @@
 export const ASSET_GROUPS = [
-  { packagePrefix: `fonts-`, sourceDirectory: `fonts`, sourceSuffix: `-font` },
-  { packagePrefix: `icons-`, sourceDirectory: `icons`, sourceSuffix: `-icon` },
+	{ packagePrefix: `fonts-`, sourceDirectory: `fonts`, sourceSuffix: `-font` },
+	{ packagePrefix: `icons-`, sourceDirectory: `icons`, sourceSuffix: `-icon` },
 ] as const
 
 export const SOURCE_DIR = `src`
