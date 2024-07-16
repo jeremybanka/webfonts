@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["ergata", "manufab", "theia", "uruz", "webfonts"]
+  "cSpell.words": ["ergata", "manufab", "theia", "uruz", "webfonts"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
