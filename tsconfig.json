@@ -2,16 +2,18 @@
   "compilerOptions": {
     "target": "es2016",
     "lib": ["es2022"],
-    "module": "ESNext",
+    "module": "Preserve",
     "moduleResolution": "Bundler",
     "types": ["node", "vitest/globals"],
     "resolveJsonModule": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "strictNullChecks": true,
     "noUnusedParameters": true,
     "skipLibCheck": true
   },
+  "include": ["**/*.ts", "eslint.d.ts", "eslint.config.js"],
   "exclude": ["**/dist"]
 }
