@@ -14,7 +14,7 @@
 		"@eslint/js": "9.11.1",
 		"@types/eslint": "9.6.1",
 		"@types/fs-extra": "11.0.4",
-		"@types/node": "20.16.6",
+		"@types/node": "20.16.7",
 		"@types/tmp": "0.2.6",
 		"@typescript-eslint/eslint-plugin": "8.7.0",
 		"@typescript-eslint/parser": "8.7.0",
