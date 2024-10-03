@@ -2,7 +2,7 @@
 
 import TypeScriptPlugin from "@typescript-eslint/eslint-plugin"
 import parser from "@typescript-eslint/parser"
-import ImportPlugin from "eslint-plugin-import"
+import ImportPlugin from "eslint-plugin-import-x"
 import eslintPluginPrettier from "eslint-plugin-prettier"
 import SimpleImportSortPlugin from "eslint-plugin-simple-import-sort"
 
