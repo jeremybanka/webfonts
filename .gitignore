@@ -18,3 +18,5 @@ export/**/*.otf
 export/**/*.ttf
 export/**/*.woff
 export/**/*.woff2
+
+.yarn/install-state.gz
