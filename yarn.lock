@@ -387,6 +387,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/js@npm:9.14.0":
+  version: 9.14.0
+  resolution: "@eslint/js@npm:9.14.0"
+  checksum: 10c0/a423dd435e10aa3b461599aa02f6cbadd4b5128cb122467ee4e2c798e7ca4f9bb1fce4dcea003b29b983090238cf120899c1af657cf86300b399e4f996b83ddc
+  languageName: node
+  linkType: hard
+
 "@eslint/object-schema@npm:^2.1.4":
   version: 2.1.4
   resolution: "@eslint/object-schema@npm:2.1.4"
@@ -1192,7 +1199,7 @@ __metadata:
   resolution: "banka-webfonts-monorepo@workspace:."
   dependencies:
     "@eslint/eslintrc": "npm:3.1.0"
-    "@eslint/js": "npm:9.13.0"
+    "@eslint/js": "npm:9.14.0"
     "@types/eslint": "npm:9.6.1"
     "@types/fs-extra": "npm:11.0.4"
     "@types/node": "npm:22.8.6"
