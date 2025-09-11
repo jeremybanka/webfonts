@@ -1,5 +1,5 @@
 {
-.appVersion = "3151";
+.appVersion = "3343";
 .formatVersion = 3;
 DisplayStrings = (
 "░▒▓ a```a/quotedbl.inqu \"/quotedbl.utqu \"\"\"a
@@ -159,7 +159,7 @@ urbit",
 ",
 "/backslash.inma/backslash.inma/backslash.inma/backslash.inma/bar.inma/bar.inma/bar.inma/bar.inma/macron.half/macron.half/macron.half/macron.half 
 
-Geang_"
+Geang_;::2:4::=:=55"
 );
 axes = (
 {
@@ -496,10 +496,15 @@ name = hyplmd;
 {
 code = "hyphen.uthy plus.uthy";
 name = hyplut;
+},
+{
+automatic = 1;
+code = "A Aacute Abreve Acircumflex Adieresis Agrave Amacron Aogonek Aring Atilde AE B C Cacute Ccaron Ccedilla Cdotaccent D Eth Dcaron Dcroat E Eacute Ecaron Ecircumflex Edieresis Edotaccent Egrave Emacron Eogonek Estroke F G Gbreve Gcommaaccent Gdotaccent H Hbar I Iacute Icircumflex Idieresis Idotaccent Igrave Imacron Iogonek J K Kcommaaccent L Lacute Lcaron Lcommaaccent Lslash M N Nacute Ncaron Ncommaaccent Ntilde Eng O Oacute Ocircumflex Odieresis Ograve Ohungarumlaut Omacron Oslash Otilde OE P Thorn Q R Racute Rcaron Rcommaaccent S Sacute Scaron Scedilla Scommaaccent Germandbls Sobliquestroke T Tbar Tcaron Tcedilla Tcommaaccent U Uacute Ucircumflex Udieresis Ugrave Uhungarumlaut Umacron Uogonek Uring V W Wacute Wcircumflex Wdieresis Wgrave X Y Yacute Ycircumflex Ydieresis Ygrave Z Zacute Zcaron Zdotaccent A.l C.l D.l G.l H.l M.l N.l O.l Q.l W.l A.r C.r D.r G.r H.r M.r N.r O.r Q.r W.r A.w C.w D.w G.w H.w M.w N.w O.w Q.w W.w Alpha Beta Gamma Delta Epsilon Zeta Eta Theta Iota Kappa Lambda Mu Nu Xi Omicron Pi Rho Sigma Tau Upsilon Phi Chi Psi Omega Alphatonos Epsilontonos Etatonos Iotatonos Omicrontonos Upsilontonos Omegatonos Iotadieresis Upsilondieresis KaiSymbol";
+name = Uppercase;
 }
 );
 date = "2020-04-20 16:01:04 +0000";
-familyName = "Theia 0.2.300";
+familyName = "Theia 0.3.500";
 featurePrefixes = (
 {
 automatic = 1;
@@ -534,52 +539,71 @@ tag = aalt;
 },
 {
 automatic = 1;
-code = "lookup ccmp_Other_1 {
+code = "lookup ccmp_DFLT_1 {
 	@CombiningTopAccents = [acutecomb brevecomb caroncomb circumflexcomb commaturnedabovecomb dieresiscomb dotaccentcomb gravecomb hungarumlautcomb macroncomb ringcomb tildecomb];
-	@CombiningNonTopAccents = [cedillacomb ogonekcomb slashlongcomb slashshortcomb strokelongcomb strokeshortcomb];
-	sub [i j]' @CombiningTopAccents by [idotless jdotless];
-	sub [i j]' @CombiningNonTopAccents @CombiningTopAccents by [idotless jdotless];
+	lookupflag UseMarkFilteringSet @CombiningTopAccents;
+	sub i' @CombiningTopAccents by idotless;
+	sub j' @CombiningTopAccents by jdotless;
+} ccmp_DFLT_1;
+
+lookup ccmp_Other_1 {
+	lookupflag 0;
+	@Markscomb = [tonos];
+	@MarkscombCase = [tonos.case];
+	sub @Markscomb @Markscomb' by @MarkscombCase;
+	sub @Uppercase @Markscomb' by @MarkscombCase;
 } ccmp_Other_1;
+
+lookup ccmp_Other_2 {
+	lookupflag 0;
+	sub @Markscomb' @MarkscombCase by @MarkscombCase;
+	sub @MarkscombCase @Markscomb' by @MarkscombCase;
+} ccmp_Other_2;
 ";
 tag = ccmp;
 },
 {
 automatic = 1;
-code = "lookup locl_latn_0 {
-	script latn;
-	language AZE;
-	language CRT;
-	language KAZ;
-	language TAT;
-	language TRK;
+code = "script latn;
+language AZE;
+lookup locl_latn_0 {
 	sub i by idotaccent;
 } locl_latn_0;
+language CRT;
+lookup locl_latn_0;
+language KAZ;
+lookup locl_latn_0;
+language TAT;
+lookup locl_latn_0;
+language TRK;
+lookup locl_latn_0;
 
+script latn;
+language ROM;
 lookup locl_latn_1 {
-	script latn;
-	language ROM;
-	language MOL;
 	sub Scedilla by Scommaaccent;
 	sub scedilla by scommaaccent;
 	sub Tcedilla by Tcommaaccent;
 	sub tcedilla by tcommaaccent;
 } locl_latn_1;
+language MOL;
+lookup locl_latn_1;
 
+script latn;
+language PLK;
 lookup locl_latn_2 {
-	script latn;
-	language PLK;
 	sub acutecomb by acutecomb.loclPLK;
 } locl_latn_2;
 
+script latn;
+language NLD;
 lookup locl_latn_3 {
-	script latn;
-	language NLD;
 	sub iacute j by iacute_j.loclNLD;
 } locl_latn_3;
 
+script latn;
+language CAT;
 lookup locl_latn_4 {
-	script latn;
-	language CAT;
 	sub  l' periodcentered' l by ldot;
 } locl_latn_4;
 ";
@@ -623,7 +647,6 @@ sub slash' greater by slash.ingr;
 sub @lsls less' @lsls by less.mdls;
 sub @eqeq less' @lsls by less.eqls;
 sub @lsls less' @eqeq by less.lseq;
-
 sub @hyhy less' @lsls by less.hyls;
 sub @lsls less' @hyhy by less.lshy;
 
@@ -635,6 +658,7 @@ sub @lsls @lsls @lsls less' by less.mdls;
 sub @lsls less' by less.utls;
 
 # greater
+# MIDGARD
 sub @grgr greater' @grgr by greater.mdgr;
 #EDGAR
 sub @eqeq greater' @grgr by greater.eqgr;
@@ -735,14 +759,6 @@ sub
  quotedbl' quotedbl quotedbl by quotedbl.inqu;
 sub quotedbl.inqu quotedbl quotedbl' by quotedbl.utqu;
 
-# number colon
-sub @num colon' by colon.num;
-sub colon' @num by colon.num;
-# number semicolon
-sub @num semicolon' by semicolon.num;
-sub semicolon' @num by semicolon.num;
-
-
 # float colon
 sub @logi colon' by colon.logi;
 sub colon' @logi by colon.logi;
@@ -762,6 +778,14 @@ sub question' @logi by question.logi;
 sub @logi exclam' by exclam.logi;
 sub exclam' @logi by exclam.logi;
 
+# number colon
+sub @num colon' by colon.num;
+sub colon' @num by colon.num;
+# number semicolon
+sub @num semicolon' by semicolon.num;
+sub semicolon' @num by semicolon.num;
+
+
 # psuedokern
 sub @fr @m' @fl by @w;
 sub [P V] A' by A.l; 
@@ -773,6 +797,7 @@ tag = calt;
 {
 automatic = 1;
 code = "sub period by period.case;
+sub tonos by tonos.case;
 ";
 tag = case;
 },
@@ -812,8 +837,8 @@ pos = 1280;
 size = 30;
 },
 {
-pos = "-120";
-size = "-30";
+pos = -120;
+size = -30;
 }
 );
 },
@@ -886,8 +911,8 @@ pos = 1280;
 size = 30;
 },
 {
-pos = "-120";
-size = "-30";
+pos = -120;
+size = -30;
 }
 );
 },
@@ -13179,8 +13204,7 @@ type = Stem;
 },
 {
 horizontal = 1;
-place = (-30, 135);
-place = (-30, 135);
+place = (-30,135);
 type = Stem;
 }
 );
@@ -18105,14 +18129,12 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-place = (-30, 0);
-place = (-30, 0);
+place = (-30,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (112, 0);
-place = (112, 0);
+place = (112,0);
 type = Stem;
 }
 );
@@ -18219,14 +18241,12 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-place = (-30, 0);
-place = (-30, 0);
+place = (-30,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (112, 0);
-place = (112, 0);
+place = (112,0);
 type = Stem;
 }
 );
@@ -18591,14 +18611,12 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-place = (-30, 0);
-place = (-30, 0);
+place = (-30,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (112, 0);
-place = (112, 0);
+place = (112,0);
 type = Stem;
 }
 );
@@ -18705,14 +18723,12 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-place = (-30, 0);
-place = (-30, 0);
+place = (-30,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (112, 0);
-place = (112, 0);
+place = (112,0);
 type = Stem;
 }
 );
@@ -28236,8 +28252,7 @@ layers = (
 hints = (
 {
 horizontal = 1;
-place = (450, 135);
-place = (450, 135);
+place = (450,135);
 type = Stem;
 }
 );
@@ -33779,26 +33794,22 @@ width = 1000;
 hints = (
 {
 horizontal = 1;
-place = (650, 0);
-place = (650, 0);
+place = (650,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (785, 0);
-place = (785, 0);
+place = (785,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (215, 0);
-place = (215, 0);
+place = (215,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (350, 0);
-place = (350, 0);
+place = (350,0);
 type = Stem;
 }
 );
@@ -33900,14 +33911,12 @@ layers = (
 hints = (
 {
 horizontal = 1;
-place = (433, 0);
-place = (433, 0);
+place = (433,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (568, 0);
-place = (568, 0);
+place = (568,0);
 type = Stem;
 }
 );
@@ -34240,14 +34249,12 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-place = (533, 0);
-place = (533, 0);
+place = (533,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (567, 0);
-place = (567, 0);
+place = (567,0);
 type = Stem;
 }
 );
@@ -34344,14 +34351,12 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-place = (533, 0);
-place = (533, 0);
+place = (533,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (567, 0);
-place = (567, 0);
+place = (567,0);
 type = Stem;
 }
 );
@@ -37894,26 +37899,22 @@ layers = (
 hints = (
 {
 horizontal = 1;
-place = (650, 0);
-place = (650, 0);
+place = (650,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (785, 0);
-place = (785, 0);
+place = (785,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (215, 0);
-place = (215, 0);
+place = (215,0);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (350, 0);
-place = (350, 0);
+place = (350,0);
 type = Stem;
 }
 );
@@ -45610,7 +45611,6 @@ instances = (
 axesValues = (
 140
 );
-exports = 0;
 instanceInterpolations = {
 "7B6A6B4E-EFCA-423F-B1F3-F70C1AFA501E" = 1;
 };
@@ -45631,6 +45631,7 @@ name = "400";
 axesValues = (
 100
 );
+exports = 0;
 instanceInterpolations = {
 "75A0A031-BEAD-45F4-8089-5B3FA8FFE7DC" = 0.36364;
 "7B6A6B4E-EFCA-423F-B1F3-F70C1AFA501E" = 0.63636;
@@ -45749,6 +45750,6 @@ tH = 90;
 };
 };
 };
-versionMajor = 1;
-versionMinor = 0;
+versionMajor = 0;
+versionMinor = 3;
 }
