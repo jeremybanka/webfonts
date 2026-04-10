@@ -27,7 +27,7 @@
 		"sass": "1.83.4",
 		"tmp": "0.2.5",
 		"tsx": "4.19.2",
-		"typescript": "5.7.3",
+		"typescript": "5.9.3",
 		"vitest": "3.0.5"
 	},
 	"packages": [
